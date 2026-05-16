@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥁 신나는 리듬 창작 실험실</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>🥁 신나는 리듬 창작 실험실</h1>
+            <p class="subtitle">아래의 리듬 카드를 눌러 나만의 리듬 조합을 만들고 들어보세요!</p>
+        </header>
+
+        <section class="control-panel">
+            <div class="btn-group">
+                <button id="playBtn" class="btn play-btn">▶ 리듬 재생</button>
+                <button id="stopBtn" class="btn stop-btn" disabled>■ 정지</button>
+                <button id="clearBtn" class="btn clear-btn">↺ 처음부터 다시</button>
+            </div>
+            <div class="bpm-group">
+                <label for="bpmSlider">템포 (BPM): <span id="bpmValue">88</span></label>
+                <input type="range" id="bpmSlider" min="60" max="140" value="88">
+            </div>
+            <div class="metronome-toggle">
+                <input type="checkbox" id="metroCheck" checked>
+                <label for="metroCheck">메트로놈(박자 가이드) 같이 듣기</label>
+            </div>
+        </section>
+
+        <section class="palette-section">
+            <h2>1단계: 리듬 카드 고르기 (클릭하면 추가됨)</h2>
+            <div class="rhythm-palette">
+                <div class="rhythm-card source" data-type="quarter">
+                    <div class="note-icon">♩</div>
+                    <div class="note-name">4분음표</div>
+                    <div class="note-duration">1박자</div>
+                </div>
+                <div class="rhythm-card source" data-type="quarter_rest">
+                    <div class="note-icon">𝄽</div>
+                    <div class="note-name">4분쉼표</div>
+                    <div class="note-duration">1박자</div>
+                </div>
+                <div class="rhythm-card source" data-type="two_eighths">
+                    <div class="note-icon">♫</div>
+                    <div class="note-name">8분음표 2개</div>
+                    <div class="note-duration">1박자</div>
+                </div>
+                <div class="rhythm-card source" data-type="eighth_rest">
+                    <div class="note-icon">𝄾</div>
+                    <div class="note-name">8분쉼표 1개</div>
+                    <div class="note-duration">0.5박자</div>
+                </div>
+                <div class="rhythm-card source" data-type="four_sixteenths">
+                    <div class="note-icon">♬</div>
+                    <div class="note-name">16분음표 4개</div>
+                    <div class="note-duration">1박자</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="workspace-section">
+            <h2>2단계: 내가 만든 리듬 조각들 <span id="totalBeats">(총 0박자)</span></h2>
+            <div id="workspace" class="workspace">
+                <p class="placeholder-text">여기에 리듬 카드를 채워 곡을 완성해 보세요!</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
